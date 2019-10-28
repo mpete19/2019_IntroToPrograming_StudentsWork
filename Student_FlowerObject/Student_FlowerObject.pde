@@ -6,8 +6,8 @@ void setup() {
   fullScreen();
   frameRate(120);
 
-  int _r1= 100;
-  int _r2 = 175;
+  int _r1= width/20;
+  int _r2 = width/35;
   int _wings = 2;
   int _petals=7;
   float _x=width/3;
@@ -19,7 +19,7 @@ void setup() {
   int _myBeeWingColor=#F4FF64;
   int _myBeeColor= #EAD258;
   float _flowerMoveX=width/400;
-  float _flowerMoveY=0;
+  float _flowerMoveY=height/400;
   float _beeMoveX=0;
   float _beeMoveY=0;
 
@@ -34,8 +34,8 @@ void draw() {
   Flower.display();
   Flower.move();
   Flower.bounce();
-  //  Flower.beeHitsFlower();
+  Flower.hit(myBee);
+
   myBee.display();
   myBee.fly();
-  // myBee.beeHitsFlower();
 }

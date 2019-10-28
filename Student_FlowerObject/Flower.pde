@@ -29,8 +29,6 @@ class Flower_Bee {
 
     fill(outColor);
     for (float i=0; i<PI*2; i+=2*PI/n_petals) {
-      //  ballX=width/2 + r*cos(i);
-      //  ballY=height/2 + r*sin(i);
       ballX=x + r*cos(i);
       ballY=y + r*sin(i);
       ellipse(ballX, ballY, r, r);
@@ -50,24 +48,22 @@ class Flower_Bee {
       speedY = speedY * (-1);
     }
   }
-  /*
-  void beeHitsFlower() {
-   
-   float textS = height/10;
-   float textX = width/2;
-   float textY = height/2;
-   
-   if () {
-   fill(0);
-   textSize(textS);
-   textAlign(CENTER);
-   text("FLOWER POWER!", textX, textY);
-   }
-   }*/
-  void fly() {
-    if (mousePressed && mouseX > x - r && x + r > mouseX && y + r > mouseY && mouseY > y - r) {
-      x = mouseX;
-      y = mouseY;
+
+  void hit(Flower_Bee other) {
+    float d = dist(x, y, other.x, other.y);
+    if (d < r + other.r) {
+      r = random(r, width/20);
+      x = random(width);
+      y = random(height);
+      outColor = int(random(#000000, #FFFFFF));
+      midColor = int(random(#000000, #FFFFFF));
+      speedX = random(speedX, width/450) * (-1);
+      speedY = random(speedY, height/450) * (-1);
     }
+  }
+
+  void fly() {
+    x = mouseX;
+    y = mouseY;
   }
 }
