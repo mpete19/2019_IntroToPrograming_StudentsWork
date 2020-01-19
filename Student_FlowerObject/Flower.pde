@@ -11,7 +11,7 @@ class Flower_Bee {
   int n_petals;  // number of petals 
   float x;       // x-position of the center of the flower
   float y;       // y-position of the center of the flower
-  int outColor;//hexadecimal number for the color of petals
+  int outColor;  // number for the color of petals
   int midColor;
 
   Flower_Bee(float temp_r, int temp_n_petals, float temp_x, float temp_y, int temp_outColor, int temp_midColor, float temp_speedX, float temp_speedY) {
